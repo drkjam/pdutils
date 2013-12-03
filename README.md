@@ -18,6 +18,8 @@ To use the API effectively, the intentino is to write tests that look something 
 
 The test should pass if both TimeSeries objects compare favourably.
 
+If they fail, the assertion should provide a meaningful message about what is different between the objects being compared.
+
 
 API
 ---
@@ -50,4 +52,4 @@ In no particular order, these are the things that should be changed / added in f
 
 * add comparison support for Panels
 * more details comparison of multi-dimensional numpy arrays
-
+* some form of diff view comparing both sides (currently this is a very simple message).
