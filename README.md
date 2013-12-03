@@ -1,5 +1,5 @@
-pdutils - utilities for the pandas library
-==========================================
+pdutils - pandas utilities 
+==========================
 
 Introduction
 ------------
@@ -43,3 +43,11 @@ Like the Python assert statement but in functional form.
     assert_not((expr, failure_msg))
 
 A negative assertion in functional form.
+
+TODO
+----
+In no particular order, these are the things that should be changed / added in future.
+
+* add comparison support for Panels
+* more details comparison of multi-dimensional numpy arrays
+
