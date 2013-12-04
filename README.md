@@ -4,22 +4,33 @@ pdutils - pandas utilities
 Introduction
 ------------
 
-The intention of this package is simple - to make testing with pandas painless and simple.
+The intention of this package is simple - to make testing with pandas easy.
 
-To use the API effectively, the intentino is to write tests that look something like this :
+Here's an example of the intended API usage :
 
     from pdutils import ts_compare, assert_
 
     ...
 
-    def test_x():
+    def test1():
         # initialise two pandas TimeSeries objects for comparison, then ...
-        assert_(ts_compare(ts1, ts2)
+        assert_(ts_compare(ts1, ts2))
 
-The test should pass if both TimeSeries objects compare favourably.
+The test should pass if both TimeSeries objects are equivalent.
 
-If they fail, the assertion should provide a meaningful message about what is different between the objects being compared.
+If the comparison fails, by default, the assertion should provide a terse, yet meaningful message
+about the difference that cause the assertion failure.
 
+A more details comparison can be extracted using the verbose option.
+
+    def test2():
+        # initialise two pandas TimeSeries objects for comparison, then ...
+        assert_(ts_compare(ts1, ts2, verbose=True))
+
+This should provide an over and under view of the difference found in a particular column, where applicable.
+
+For columns containing float types it is also possible to configure the tolerance of the
+comparison (see docstrings for further details).
 
 API
 ---
@@ -52,4 +63,3 @@ In no particular order, these are the things that should be changed / added in f
 
 * add comparison support for Panels
 * more details comparison of multi-dimensional numpy arrays
-* some form of diff view comparing both sides (currently this is a very simple message).
