@@ -62,4 +62,3 @@ TODO
 In no particular order, these are the things that should be changed / added in future.
 
 * add comparison support for Panels
-* more details comparison of multi-dimensional numpy arrays
