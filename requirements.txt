@@ -1,3 +1,4 @@
 numpy>=1.7.1
 pandas>=0.10.1
-
+pytest>=2.5.2
+jsonpickle>=0.7.0
