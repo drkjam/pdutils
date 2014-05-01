@@ -132,7 +132,7 @@ def df_compare(left, right, rtol=1.e-5, atol=1.e-8, verbose=False):
     atol : float
         The absolute tolerance parameter for np.allclose() comparisons. (optional)
 
-     verbose: bool
+    verbose: bool
         If True displays detailed comparison information. (optional)
         Default: False
 
@@ -167,9 +167,13 @@ def df_compare(left, right, rtol=1.e-5, atol=1.e-8, verbose=False):
     are compared equal with a specified tolerance using np.allclose(...)).
     """
     if left.columns.size != right.columns.size:
-        return False, 'column count mismatch!' \
-            'left has %d column(s), right has %d column(s)' \
-                % (left.columns.size, right.columns.size)
+        reason_template = '%s side column(s) {%s} not found on the %s side'
+        col_diff = lambda x, y: [str(x) for x in set(x.columns) - set(y.columns)]
+        if left.columns.size > right.columns.size:
+            reason = reason_template % ('left', ', '.join(col_diff(left, right)), 'right')
+        else:
+            reason = reason_template % ('right', ', '.join(col_diff(right, left)), 'left')
+        return False, 'column mismatch! %s' % reason
 
     if len(left) != len(right):
         return False, 'row count mismatch!' \
