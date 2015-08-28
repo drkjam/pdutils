@@ -56,9 +56,3 @@ Like the Python assert statement but in functional form.
     assert_not((expr, failure_msg))
 
 A negative assertion in functional form.
-
-TODO
-----
-In no particular order, these are the things that should be changed / added in future.
-
-* add comparison support for Panels
